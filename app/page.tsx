@@ -1,15 +1,17 @@
-import Navbar from "./components/Header";
-import BlogSection from "./section/blog-section";
+import BlogSection from "./section/news-section";
 import HeroSection from "./section/hero-section";
-import Footer from "./components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-export default function Home() {
+type SP = Record<string, string | string[]> | undefined;
+
+export default function Home({ searchParams }: { searchParams: SP }) {
   return (
     <section className="mx-auto">
-      <Navbar />
+      <Header />
       <HeroSection />
-      <BlogSection />
-      <Footer/>
+      <BlogSection heading="Latest News" searchParams={searchParams} />
+      <Footer />
     </section>
   );
 }
