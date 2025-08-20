@@ -3,9 +3,18 @@ import HeroSection from "./section/hero-section";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-type SP = Record<string, string | string[]> | undefined;
+type Params = { slug?: string };
+type SearchParams = { [key: string]: string | string[] | undefined };
 
-export default function Home({ searchParams }: { searchParams: SP }) {
+export default function Page({
+  params,
+  searchParams
+}: {
+  params: Params;
+  searchParams: SearchParams;
+}) {
+  const query = searchParams.query;
+
   return (
     <section className="mx-auto">
       <Header />

@@ -1,4 +1,3 @@
-// lib/news/service.ts
 import { sourcesData, type NewsItem } from "./source";
 import { dedupeByUrl, fetchWithTimeout, safeIso } from "@/lib/news/utils";
 

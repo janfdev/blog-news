@@ -1,4 +1,3 @@
-import { X } from "lucide-react";
 export type NewsItem = {
   id: string;
   source: string;

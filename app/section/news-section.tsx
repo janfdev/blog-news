@@ -5,23 +5,23 @@ import NewsList from "@/components/NewsList";
 
 interface BlogProps {
   heading?: string;
-  searchParams?: Record<string, string | string[]>;
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 export default async function BlogSection({
   heading = "Latest News",
-  searchParams
+  searchParams = {}
 }: BlogProps) {
-  const q = typeof searchParams?.q === "string" ? searchParams.q : "";
-  const page = Number.parseInt((searchParams?.page as string) ?? "1", 10);
-  const limit = Number.parseInt((searchParams?.limit as string) ?? "12", 10);
-  const sources = Array.isArray(searchParams?.source)
-    ? (searchParams?.source as string[])
-    : searchParams?.source
-    ? [searchParams?.source as string]
+  const q = typeof searchParams.q === "string" ? searchParams.q : "";
+  const page = Number.parseInt((searchParams.page as string) ?? "1", 10);
+  const limit = Number.parseInt((searchParams.limit as string) ?? "12", 10);
+
+  const sources = Array.isArray(searchParams.source)
+    ? searchParams.source
+    : searchParams.source
+    ? [searchParams.source as string]
     : [];
 
-  // data awal (SSR)
   const initialData = await getNews({
     q,
     page,
@@ -29,7 +29,6 @@ export default async function BlogSection({
     sources: sources.length ? sources : undefined
   });
 
-  // url refetch di client
   const qs = new URLSearchParams();
   if (q) qs.set("q", q);
   qs.set("page", String(page));
