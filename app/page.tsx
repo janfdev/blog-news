@@ -7,13 +7,11 @@ type Params = { slug?: string };
 type SearchParams = { [key: string]: string | string[] | undefined };
 
 export default function Page({
-  params,
   searchParams
 }: {
   params: Params;
   searchParams: SearchParams;
 }) {
-  const query = searchParams.query;
 
   return (
     <section className="mx-auto">
