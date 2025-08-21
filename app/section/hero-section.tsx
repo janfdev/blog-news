@@ -7,7 +7,7 @@ export default function HeroSection() {
     <section className="pt-20 md:pt-36">
       <div className="mx-auto flex max-w-5xl flex-col items-center">
         <div className="z-10 flex flex-col items-center gap-6 text-center">
-          <div className="flex w-50 items-center space-x-2 group rounded-full bg-primary/20 px-2 py-1 ring-1 ring-accent whitespace-pre">
+          <div className="flex w-fit items-center space-x-2 group rounded-full bg-primary/20 px-2 py-1 ring-1 ring-accent whitespace-pre">
             <span className="w-fit rounded-full bg-primary px-2 py-0.5 text-center text-xs font-medium text-primary-foreground sm:text-sm">
               📣 New
             </span>
@@ -21,9 +21,9 @@ export default function HeroSection() {
               Latest News: The World at Your Fingertips
             </h1>
             <p className="text-muted-foreground lg:text-xl">
-              Sajikan informasi paling relevan dan terpercaya, langsung dari
-              sumber-sumber kredibel. Jangan lewatkan setiap perkembangan
-              penting di seluruh dunia.
+              Get the most relevant and reliable information, straight from
+              credible sources. Don't miss out on any important developments
+              around the world.
             </p>
           </div>
           <div className="mt-4 flex justify-center gap-2">
