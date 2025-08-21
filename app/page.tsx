@@ -1,17 +1,18 @@
-import BlogSection from "./section/news-section";
-import HeroSection from "./section/hero-section";
+import { use } from "react";
 import Header from "@/components/Header";
+import HeroSection from "./section/hero-section";
+import BlogSection from "./section/news-section";
 import Footer from "@/components/Footer";
 
-type Params = { slug?: string };
-type SearchParams = { [key: string]: string | string[] | undefined };
+type Params = Promise<Record<string, string>>; // atau Promise<{ slug: string }>
+type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
-export default function Page({
-  searchParams
-}: {
+export default function Page(props: {
   params: Params;
   searchParams: SearchParams;
 }) {
+  const _params = use(props.params);
+  const searchParams = use(props.searchParams);
 
   return (
     <section className="mx-auto">
